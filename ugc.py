@@ -9,6 +9,9 @@ csv_url = 'https://raw.githubusercontent.com/faizazizan/tiktok-ugc-analysis/main
 # Load the CSV file into a DataFrame
 df = pd.read_csv(csv_url)
 
+# Handle non-string and NaN values in 'Price Range'
+df['Price Range'] = df['Price Range'].astype(str)  # Convert all values to strings
+df['Price Range'] = df['Price Range'].str.split('-').str[0].str.strip()
 
 # Assuming 'Price Range' contains ranges like "0-50", "50-100", etc.
 # Extract the lower bound of the price range and convert to numeric
