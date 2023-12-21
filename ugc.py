@@ -32,7 +32,7 @@ df['Price Range Labels'] = df['Price Range'].map(custom_labels)
 st.title("UGC Data Analysis Dashboard")
 
 # Display Raw Data
-st.subheader("Raw Data")
+st.subheader("List of Video")
 st.write(df)
 
 # Distribution of Video Types
