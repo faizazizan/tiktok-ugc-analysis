@@ -37,6 +37,9 @@ df['Price Range Labels'] = df['Price Range'].map(custom_labels)
 # Page Title
 st.title("UGC Data Analysis Dashboard")
 
+# Add YouTube video below the header
+st.video("https://youtu.be/GL1Zs82Vg7s")
+
 # Display Raw Data
 st.subheader("Raw Data")
 st.write(df)
