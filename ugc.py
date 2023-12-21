@@ -15,9 +15,6 @@ df = df.iloc[:, 1:]
 # Add a numbered column
 df.insert(0, 'Number', range(1, len(df) + 1))
 
-# Print column names
-st.write("Column Names:", df.columns.tolist())
-
 # Handle non-string and NaN values in 'Price Range'
 df['Price Range'] = df['Price Range'].astype(str)  # Convert all values to strings
 df['Price Range'] = df['Price Range'].str.split('-').str[0].str.strip()
