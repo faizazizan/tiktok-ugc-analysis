@@ -9,8 +9,8 @@ csv_url = 'https://raw.githubusercontent.com/faizazizan/tiktok-ugc-analysis/main
 # Load the CSV file into a DataFrame
 df = pd.read_csv(csv_url)
 
-# Drop NaN columns
-df = df.dropna(axis=1, how='all')
+# Drop the first column under the header
+df = df.iloc[:, 1:]
 
 # Add a numbered column
 df.insert(0, 'Number', range(1, len(df) + 1))
