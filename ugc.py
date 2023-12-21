@@ -67,6 +67,6 @@ st.pyplot(fig)
 
 # Conclusion
 st.markdown("---")
-st.markdown("Created by [Your Name]")
+st.markdown("Created by [Faiz Azizan](https://faizazizan.com)")
 
 # Tips: You can customize the layout, styling, and additional interactivity based on your preferences and requirements.
