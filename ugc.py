@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Load the CSV file into a DataFrame
-df = pd.read_csv('/Users/faizazizan/Documents/ugc.csv')
+df = pd.read_csv('ugc.csv')
 
 # Assuming 'Price Range' contains ranges like "0-50", "50-100", etc.
 # Extract the lower bound of the price range and convert to numeric
