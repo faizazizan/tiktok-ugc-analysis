@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 csv_url = 'https://raw.githubusercontent.com/faizazizan/tiktok-ugc-analysis/main/github-ugc.csv'
 
 # Load the CSV file into a DataFrame
-df = pd.read_csv(csv_url)
+df = pd.read_csv(csv_url, skiprows=[0])  # Skip the first row
 
 # Drop the first column under the header
 df = df.iloc[:, 1:]
