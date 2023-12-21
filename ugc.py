@@ -3,8 +3,12 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+# Replace this URL with your CSV file's raw GitHub URL
+csv_url = 'https://raw.githubusercontent.com/faizazizan/tiktok-ugc-analysis/main/github-ugc.csv'
+
 # Load the CSV file into a DataFrame
-df = pd.read_csv('ugc.csv')
+df = pd.read_csv(csv_url)
+
 
 # Assuming 'Price Range' contains ranges like "0-50", "50-100", etc.
 # Extract the lower bound of the price range and convert to numeric
