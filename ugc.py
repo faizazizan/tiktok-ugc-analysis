@@ -9,6 +9,12 @@ csv_url = 'https://raw.githubusercontent.com/faizazizan/tiktok-ugc-analysis/main
 # Load the CSV file into a DataFrame
 df = pd.read_csv(csv_url)
 
+# Drop NaN columns
+df = df.dropna(axis=1, how='all')
+
+# Add a numbered column
+df.insert(0, 'Number', range(1, len(df) + 1))
+
 # Handle non-string and NaN values in 'Price Range'
 df['Price Range'] = df['Price Range'].astype(str)  # Convert all values to strings
 df['Price Range'] = df['Price Range'].str.split('-').str[0].str.strip()
