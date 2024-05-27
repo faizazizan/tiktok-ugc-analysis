@@ -9,30 +9,25 @@ csv_url = 'https://raw.githubusercontent.com/faizazizan/tiktok-ugc-analysis/main
 # Load the CSV file into a DataFrame
 df = pd.read_csv(csv_url)
 
-# Drop the first column under the header
+# Drop the first column
 df = df.iloc[:, 1:]
 
 # Add a numbered column
 df.insert(0, 'Number', range(1, len(df) + 1))
 
 # Handle non-string and NaN values in 'Price Range'
-df['Price Range'] = df['Price Range'].astype(str)  # Convert all values to strings
-df['Price Range'] = df['Price Range'].str.split('-').str[0].str.strip()
-
-# Assuming 'Price Range' contains ranges like "0-50", "50-100", etc.
-# Extract the lower bound of the price range and convert to numeric
-df['Price Range'] = df['Price Range'].str.split('-').str[0].str.strip()
+df['Price Range'] = df['Price Range'].astype(str).str.split('-').str[0].str.strip()
 df['Price Range'] = pd.to_numeric(df['Price Range'], errors='coerce')
 
 # Define custom labels for the price ranges
 custom_labels = {
     0: 'Less than $50',
     50: 'Between $50 and $100',
-    100: 'Between $100 and $150',  # Note: I modified the upper bound to match the example
+    100: 'Between $100 and $150'
 }
 
 # Apply the custom labels
-df['Price Range Labels'] = df['Price Range'].map(custom_labels)
+df['Price Range Labels'] = df['Price Range'].map(lambda x: custom_labels.get(x, 'Other'))
 
 # Page Title
 st.title("UGC Data Analysis Dashboard")
@@ -76,6 +71,4 @@ st.pyplot(fig)
 
 # Conclusion
 st.markdown("---")
-st.markdown("Created by [Faiz Azizan](https://faizazizan.com)")
-
-# Tips: You can customize the layout, styling, and additional interactivity based on your preferences and requirements.
+st.markdown("Created by [Faiz Azizan](https://faizazizan.com) ❤️")
